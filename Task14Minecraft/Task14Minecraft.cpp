@@ -5,27 +5,32 @@ int main()
 {
     cout << "Minecraft!\n";
     int h=0;
-    bool mine[10][5][5];
-    for (int i = 0; i < 10; i++)
+    bool mine[5][5][10];
+    for (int i = 0; i < 5; i++)
     {
         for (int j = 0; j < 5; j++)
         {
-
-            for (int k = 0; k < 5; k++)
-            {
-                mine[i][j][k] = true;
+            cout << "Enter the height of the columns (1-10)\n";
+            cin >> h;
+            for (int k = 0; k < 10; k++)
+            {   
+                if(k<h)
+                    mine[i][j][k] = true;
+                else
+                    mine[i][j][k] = false;
             }
-        }
+            h = 0;
+        }   
     }
-    for (int i = 0; i < 10; i++)
+    cout << endl;
+    cout << "Enter the desired cross section (1-10)\n";
+    cin>>h;
+    h--;
+    for (int i = 0; i < 5; i++)
     {
         for (int j = 0; j < 5; j++)
-        {
-            for (int k = 0; k < 5; k++)
-            {
-                cout << mine[i][j][k] << " ";
-            }
-            cout << endl;
+        {            
+          cout << mine[i][j][h] << " ";
         }
         cout << endl;
     }
